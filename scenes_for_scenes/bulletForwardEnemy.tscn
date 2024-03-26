@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c05g11vuuc71h"]
+
+[ext_resource type="Script" path="res://scripts/bulletForwardEnemy.gd" id="1_jxqgf"]
+[ext_resource type="Texture2D" uid="uid://lcc6arp5uqf5" path="res://resources/enemies/shootenemy.png" id="2_xu6ny"]
+[ext_resource type="Texture2D" uid="uid://bwu2fpxn2d55" path="res://resources/enemies/lightenemyshoot.png" id="3_tkhdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3varm"]
+size = Vector2(46, 5)
+
+[node name="bulletEnemy" type="Area2D" groups=["bullet"]]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_jxqgf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = -5.0
+offset_right = 32.0
+offset_bottom = 5.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_xu6ny")
+metadata/_edit_use_anchors_ = true
+
+[node name="Dissapear" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, 2.5)
+shape = SubResource("RectangleShape2D_3varm")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(24, 2)
+scale = Vector2(0.128186, 0.157031)
+texture = ExtResource("3_tkhdg")
+texture_scale = 1.6
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Dissapear" to="." method="_on_dissapear_timeout"]

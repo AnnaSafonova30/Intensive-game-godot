@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtm7775xgvfjx"]
+
+[ext_resource type="Script" path="res://scripts/saveLevel/comics_to_cold.gd" id="1_muptw"]
+[ext_resource type="Texture2D" uid="uid://cyr4h7hqo6kj1" path="res://resources/backgrounds/empty.png" id="1_pvfor"]
+[ext_resource type="Texture2D" uid="uid://bg73xaf83p4jm" path="res://resources/comicses/4/1_4.png" id="2_ocs6y"]
+[ext_resource type="Texture2D" uid="uid://4bobgbhxob1s" path="res://resources/comics/2_4.png" id="3_vdx5y"]
+[ext_resource type="Texture2D" uid="uid://mfxnt7v27vfl" path="res://resources/comics/4_5.png" id="4_1c18i"]
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="5_bj2as"]
+[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="6_r2nfk"]
+[ext_resource type="Texture2D" uid="uid://bmlvc2t6tk8o3" path="res://resources/mobile_buttons/somewhere_need_this_button.png" id="7_bpidy"]
+[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="8_jfbwu"]
+[ext_resource type="Script" path="res://scripts/move_from_comics_to_lvl.gd" id="9_ow1ov"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="10_0dxoc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uu5di"]
+font = ExtResource("5_bj2as")
+font_size = 25
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_muptw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -86.0
+offset_top = -2.0
+offset_right = 1482.0
+offset_bottom = 792.0
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("1_pvfor")
+
+[node name="14" type="Sprite2D" parent="."]
+position = Vector2(425.5, 179.594)
+scale = Vector2(3.57, 3.57)
+texture = ExtResource("2_ocs6y")
+flip_h = true
+
+[node name="43" type="Sprite2D" parent="."]
+position = Vector2(778.453, 178.547)
+scale = Vector2(3.51094, 3.51094)
+texture = ExtResource("3_vdx5y")
+
+[node name="45" type="Sprite2D" parent="."]
+position = Vector2(598.25, 540.25)
+scale = Vector2(3.545, 3.545)
+texture = ExtResource("4_1c18i")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 2
+offset_left = -6.0
+offset_top = 5.0
+offset_right = 236.0
+offset_bottom = 234.0
+text = "Головний герой каже: 
+\"Поки вони не виявили руйнування Пірона. Ми одразу переходимо до Кріоса\""
+label_settings = SubResource("LabelSettings_uu5di")
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 2
+offset_left = 973.0
+offset_top = 3.0
+offset_right = 1278.0
+offset_bottom = 290.0
+text = "Капітан Генадій каже: 
+\"Так. Пам'ятай, що знищити Кріос це просто, але чекай тут багато противників. Не забудь взяти речовину, яку ти взяв у Пірона, це допоможе зруйнувати цю планету. Кінець Зв'язку.\""
+label_settings = SubResource("LabelSettings_uu5di")
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 1184.0
+offset_top = 625.0
+offset_right = 1203.0
+offset_bottom = 644.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("6_r2nfk")
+texture_pressed = ExtResource("7_bpidy")
+texture_hover = ExtResource("8_jfbwu")
+script = ExtResource("9_ow1ov")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 6.10352e-05
+offset_top = 624.0
+offset_right = 19.0001
+offset_bottom = 643.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("6_r2nfk")
+texture_pressed = ExtResource("7_bpidy")
+texture_hover = ExtResource("8_jfbwu")
+flip_h = true
+script = ExtResource("10_0dxoc")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton2" to="TextureButton2" method="_on_pressed"]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://rf2tuqkywwbm"]
+
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_j6a50"]
+[ext_resource type="Texture2D" uid="uid://bwm1lsmnn1qve" path="res://resources/enemies/Анимацыя баса/1.png" id="2_hl64o"]
+[ext_resource type="Texture2D" uid="uid://cpfham70p0408" path="res://resources/enemies/Анимацыя баса/2.png" id="3_0fjyt"]
+[ext_resource type="Texture2D" uid="uid://bb4uvtw0qljlt" path="res://resources/enemies/Анимацыя баса/3.png" id="4_6vt00"]
+[ext_resource type="Texture2D" uid="uid://b8twasbjruvlf" path="res://resources/interactive/lightshoot.png" id="4_jailp"]
+[ext_resource type="Texture2D" uid="uid://dwenauspuchn0" path="res://resources/enemies/Анимацыя баса/4.png" id="5_tf3kn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncmnt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hl64o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0fjyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6vt00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tf3kn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14h38"]
+radius = 90.0
+height = 184.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl6kc"]
+size = Vector2(879.25, 531)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sywb"]
+size = Vector2(175, 177)
+
+[node name="Boss" type="RigidBody2D" groups=["enemy"]]
+gravity_scale = 0.005
+lock_rotation = true
+script = ExtResource("1_j6a50")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(88, 90)
+scale = Vector2(0.822666, 0.822666)
+sprite_frames = SubResource("SpriteFrames_ncmnt")
+autoplay = "default"
+frame_progress = 0.485794
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(88, 90)
+shape = SubResource("CapsuleShape2D_14h38")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(86, 137)
+scale = Vector2(15, 1)
+hit_from_inside = true
+
+[node name="RayCast2D1" type="RayCast2D" parent="."]
+position = Vector2(57, 139)
+rotation = 0.785398
+scale = Vector2(15, 1)
+hit_from_inside = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(114, 136)
+rotation = -0.785398
+scale = Vector2(15, 1)
+hit_from_inside = true
+
+[node name="TimerJump" type="Timer" parent="."]
+
+[node name="TimerMove" type="Timer" parent="."]
+
+[node name="FindPlr" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FindPlr"]
+position = Vector2(89, 78)
+shape = SubResource("RectangleShape2D_jl6kc")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(87, 86)
+rotation = 1.5708
+scale = Vector2(0.852712, 2.512)
+energy = 0.0
+texture = ExtResource("4_jailp")
+
+[node name="bossHit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bossHit"]
+position = Vector2(87.5, 88.5)
+shape = SubResource("RectangleShape2D_1sywb")
+
+[connection signal="timeout" from="TimerJump" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerMove" to="." method="_on_timer_move_timeout"]
+[connection signal="body_entered" from="FindPlr" to="." method="_on_find_plr_body_entered"]
+[connection signal="body_exited" from="FindPlr" to="." method="_on_find_plr_body_exited"]

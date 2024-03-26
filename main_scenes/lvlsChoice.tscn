@@ -1,0 +1,225 @@
+[gd_scene load_steps=33 format=3 uid="uid://csiouinca00uw"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ak3nj"]
+[ext_resource type="Shader" path="res://scripts/blur.gdshader" id="1_hmjde"]
+[ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="1_vcesy"]
+[ext_resource type="Texture2D" uid="uid://bpniy1a78e3hc" path="res://resources/levels/fire.png" id="2_qyyrt"]
+[ext_resource type="Script" path="res://scripts/Fire.gd" id="4_g2akj"]
+[ext_resource type="Texture2D" uid="uid://bsawkiq01n774" path="res://resources/levels/ice.png" id="4_vdxp6"]
+[ext_resource type="Texture2D" uid="uid://b6kdbhfnm3xdh" path="res://resources/levels/acid.png" id="5_ffn1x"]
+[ext_resource type="Texture2D" uid="uid://lxop800tjp6l" path="res://resources/levels/jungle.png" id="6_6yutv"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="6_euk5g"]
+[ext_resource type="Script" path="res://scripts/Ice.gd" id="6_tldrn"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="7_i58ic"]
+[ext_resource type="Texture2D" uid="uid://cc4qv8n10xobn" path="res://resources/levels/wind(ubogiy cusok nechta).png" id="7_yycph"]
+[ext_resource type="Texture2D" uid="uid://bigfay472n3rf" path="res://resources/levels/earth.png" id="8_0cgom"]
+[ext_resource type="Script" path="res://scripts/Acid.gd" id="8_ulisf"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="8_w4y13"]
+[ext_resource type="Texture2D" uid="uid://dxrmsm4mhp8fl" path="res://resources/locked_planets/pixil-frame-0 (81).png" id="10_1svdj"]
+[ext_resource type="Script" path="res://scripts/Jungle.gd" id="10_kllci"]
+[ext_resource type="Script" path="res://scripts/Wind.gd" id="12_bd8jn"]
+[ext_resource type="Texture2D" uid="uid://bfn00qdekjdp3" path="res://resources/levels/ship.png" id="13_c628e"]
+[ext_resource type="Texture2D" uid="uid://mnhjhgx8bq8g" path="res://resources/locked_planets/pixil-frame-0 (82).png" id="13_gq0l1"]
+[ext_resource type="Script" path="res://scripts/move_to_ship.gd" id="14_xt1ew"]
+[ext_resource type="Script" path="res://scripts/Earth.gd" id="18_73trb"]
+[ext_resource type="Texture2D" uid="uid://bl8ojtqhu6rfo" path="res://resources/locked_planets/pixil-frame-0 (83).png" id="18_h8w5g"]
+[ext_resource type="Texture2D" uid="uid://cb6hpigqhytuk" path="res://resources/locked_planets/pixil-frame-0 (84).png" id="21_631cs"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="21_eyan6"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="22_j2bwf"]
+[ext_resource type="AudioStream" uid="uid://bd5g1cux872bw" path="res://main_scenes/main.mp3" id="23_pfh1u"]
+[ext_resource type="Texture2D" uid="uid://dyxc0l6n8etvs" path="res://resources/locked_planets/pixil-frame-0 (85).png" id="24_6hyax"]
+[ext_resource type="Script" path="res://scripts/music/main.gd" id="24_vi06o"]
+[ext_resource type="Texture2D" uid="uid://b0i6qntndy17n" path="res://resources/arrowYellow.png" id="25_k03ut"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1xy6"]
+shader = ExtResource("1_hmjde")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0g4lo"]
+font = ExtResource("21_eyan6")
+font_size = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ak3nj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 2
+material = SubResource("ShaderMaterial_d1xy6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vcesy")
+expand_mode = 1
+
+[node name="Fire" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 108.0
+offset_right = 203.0
+offset_bottom = 208.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_qyyrt")
+texture_pressed = ExtResource("2_qyyrt")
+texture_hover = ExtResource("2_qyyrt")
+script = ExtResource("4_g2akj")
+
+[node name="Main_menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_top = 628.0
+offset_right = 19.0
+offset_bottom = 647.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("6_euk5g")
+texture_pressed = ExtResource("7_i58ic")
+texture_hover = ExtResource("7_i58ic")
+script = ExtResource("8_w4y13")
+
+[node name="Ice" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 323.0
+offset_right = 320.0
+offset_bottom = 423.0
+scale = Vector2(1.5, 1.5)
+disabled = true
+texture_normal = ExtResource("4_vdxp6")
+texture_pressed = ExtResource("4_vdxp6")
+texture_hover = ExtResource("4_vdxp6")
+texture_disabled = ExtResource("10_1svdj")
+script = ExtResource("6_tldrn")
+
+[node name="Acid" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 116.0
+offset_right = 522.0
+offset_bottom = 216.0
+scale = Vector2(1.5, 1.5)
+disabled = true
+texture_normal = ExtResource("5_ffn1x")
+texture_pressed = ExtResource("5_ffn1x")
+texture_hover = ExtResource("5_ffn1x")
+texture_disabled = ExtResource("13_gq0l1")
+script = ExtResource("8_ulisf")
+
+[node name="Ship" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1047.0
+offset_top = 478.0
+offset_right = 2039.0
+offset_bottom = 1470.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("13_c628e")
+texture_pressed = ExtResource("13_c628e")
+texture_hover = ExtResource("13_c628e")
+script = ExtResource("14_xt1ew")
+
+[node name="Jungle" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 313.0
+offset_right = 712.0
+offset_bottom = 413.0
+scale = Vector2(1.5, 1.5)
+disabled = true
+texture_normal = ExtResource("6_6yutv")
+texture_pressed = ExtResource("6_6yutv")
+texture_hover = ExtResource("6_6yutv")
+texture_disabled = ExtResource("18_h8w5g")
+script = ExtResource("10_kllci")
+
+[node name="Wind" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 114.0
+offset_right = 895.0
+offset_bottom = 214.0
+scale = Vector2(1.5, 1.5)
+disabled = true
+texture_normal = ExtResource("7_yycph")
+texture_pressed = ExtResource("7_yycph")
+texture_hover = ExtResource("7_yycph")
+texture_disabled = ExtResource("21_631cs")
+script = ExtResource("12_bd8jn")
+
+[node name="Earth" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 964.0
+offset_top = 304.0
+offset_right = 1064.0
+offset_bottom = 404.0
+scale = Vector2(1.5, 1.5)
+disabled = true
+texture_normal = ExtResource("8_0cgom")
+texture_pressed = ExtResource("8_0cgom")
+texture_hover = ExtResource("8_0cgom")
+texture_disabled = ExtResource("24_6hyax")
+script = ExtResource("18_73trb")
+
+[node name="FPSCounter" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 131.0
+offset_bottom = 53.0
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_0g4lo")
+script = ExtResource("22_j2bwf")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_pfh1u")
+script = ExtResource("24_vi06o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(245, 283)
+rotation = 1.15192
+scale = Vector2(2.16821, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(401, 295)
+rotation = -0.802851
+scale = Vector2(2.16821, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(589, 291)
+rotation = 0.715585
+scale = Vector2(2.16821, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(767, 283)
+rotation = -0.794125
+scale = Vector2(2.16821, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(962, 277)
+rotation = 0.829031
+scale = Vector2(2.16821, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(1131.55, 493.784)
+rotation = 1.03847
+scale = Vector2(3.42148, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[connection signal="pressed" from="Fire" to="Fire" method="_on_pressed"]
+[connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]
+[connection signal="pressed" from="Ice" to="Ice" method="_on_pressed"]
+[connection signal="pressed" from="Acid" to="Acid" method="_on_pressed"]
+[connection signal="pressed" from="Ship" to="Ship" method="_on_pressed"]
+[connection signal="pressed" from="Jungle" to="Jungle" method="_on_pressed"]
+[connection signal="pressed" from="Wind" to="Wind" method="_on_pressed"]
+[connection signal="pressed" from="Earth" to="Earth" method="_on_pressed"]

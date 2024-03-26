@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6picwuw4s31m"]
+
+[ext_resource type="Texture2D" uid="uid://bd3uf7lg7ytpe" path="res://resources/interactive/snow.png" id="1_ejq4j"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 1000
+lifetime = 30.0
+speed_scale = 0.3
+randomness = 1.0
+texture = ExtResource("1_ejq4j")
+emission_shape = 2
+emission_sphere_radius = 128.0
+scale_amount_min = 0.0
+scale_amount_max = 0.5

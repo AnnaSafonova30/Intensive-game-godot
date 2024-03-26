@@ -1,0 +1,164 @@
+[gd_scene load_steps=20 format=3 uid="uid://bgwiww06g5wtb"]
+
+[ext_resource type="Texture2D" uid="uid://cyr4h7hqo6kj1" path="res://resources/backgrounds/empty.png" id="1_4iflh"]
+[ext_resource type="Script" path="res://scripts/saveLevel/comics_to_jungle.gd" id="1_jojdh"]
+[ext_resource type="Texture2D" uid="uid://dt0bsf33rce8w" path="res://resources/comicses/2/3_2.png" id="2_bqhjs"]
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="3_iqwfb"]
+[ext_resource type="Texture2D" uid="uid://dw0mfncp5ut5a" path="res://resources/comicses/2/1_2.png" id="4_wro27"]
+[ext_resource type="Texture2D" uid="uid://cqbp5vv5ft7lq" path="res://resources/comics/2_2.png" id="5_chuj1"]
+[ext_resource type="LabelSettings" uid="uid://cco1pt3qaiuvl" path="res://resources/labelComic/new_label_godo.tres" id="6_akeqc"]
+[ext_resource type="LabelSettings" uid="uid://csq4b44k3m6qq" path="res://resources/labelComic/new_label_big.tres" id="7_te0ul"]
+[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="8_4ncwp"]
+[ext_resource type="Texture2D" uid="uid://bmlvc2t6tk8o3" path="res://resources/mobile_buttons/somewhere_need_this_button.png" id="9_4ty1n"]
+[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="10_kesnd"]
+[ext_resource type="Script" path="res://scripts/move_from_comics_to_lvl.gd" id="11_4xuix"]
+[ext_resource type="Texture2D" uid="uid://d154ml08gk7rb" path="res://resources/enemies/Плутон/1.png" id="12_new2l"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="12_whxc5"]
+[ext_resource type="Texture2D" uid="uid://bwu2fpxn2d55" path="res://resources/enemies/lightenemyshoot.png" id="13_bht66"]
+[ext_resource type="Texture2D" uid="uid://brpvfxpe7xtma" path="res://resources/decorations/black.png" id="14_kbux7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eivbk"]
+font = ExtResource("3_iqwfb")
+font_size = 33
+
+[sub_resource type="LabelSettings" id="LabelSettings_alg8q"]
+font = ExtResource("3_iqwfb")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6iryk"]
+font = ExtResource("3_iqwfb")
+font_size = 22
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jojdh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -86.0
+offset_top = -2.0
+offset_right = 1482.0
+offset_bottom = 792.0
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("1_4iflh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(426, 174)
+scale = Vector2(0.8, 0.686334)
+texture = ExtResource("2_bqhjs")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+texture_filter = 2
+texture_repeat = 1
+offset_left = -530.0
+offset_top = -253.0
+offset_right = -252.0
+offset_bottom = 257.0
+text = "Телеохоронець Плутона каже: \"Плутон, ми втратили зв'язок з Аксисом. 
+Вже більше місяця минуло, і зв'язку не знаходили, поки один із наших розвідників не знайшли шматки Аксису\""
+label_settings = SubResource("LabelSettings_eivbk")
+horizontal_alignment = 3
+autowrap_mode = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(816.127, 175.76)
+scale = Vector2(3.81745, 3.51098)
+texture = ExtResource("4_wro27")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(621.344, 538.965)
+scale = Vector2(4.26687, 3.6393)
+texture = ExtResource("5_chuj1")
+
+[node name="Label3" type="Label" parent="."]
+texture_filter = 2
+texture_repeat = 1
+offset_left = 619.0
+offset_top = 48.0
+offset_right = 784.0
+offset_bottom = 132.0
+text = "Всі дані перехоплені, Капітан. Докладіть обстановку."
+label_settings = ExtResource("6_akeqc")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="."]
+texture_filter = 2
+texture_repeat = 1
+offset_left = 498.0
+offset_top = 456.0
+offset_right = 669.0
+offset_bottom = 508.0
+text = "Так точно, Капітане"
+label_settings = SubResource("LabelSettings_alg8q")
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="."]
+texture_filter = 2
+texture_repeat = 1
+offset_left = 1011.0
+offset_top = 2.0
+offset_right = 1273.0
+offset_bottom = 285.0
+text = "Капітан Генадій каже: \"Виявлено безліч захистів і захисне поле, але в ньому є зачіпка. У підвалі Джунглі відсутнє те саме захисне поле. Ти потрапиш сюди вирішиш усі питання і перейдемо до самого Плутона\""
+label_settings = SubResource("LabelSettings_6iryk")
+horizontal_alignment = 3
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1185.0
+offset_top = 627.0
+offset_right = 1204.0
+offset_bottom = 646.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("8_4ncwp")
+texture_pressed = ExtResource("9_4ty1n")
+texture_hover = ExtResource("10_kesnd")
+script = ExtResource("11_4xuix")
+levelTeleport = "fourth_level"
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 1.00012
+offset_top = 626.0
+offset_right = 20.0001
+offset_bottom = 645.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("8_4ncwp")
+texture_pressed = ExtResource("9_4ty1n")
+texture_hover = ExtResource("10_kesnd")
+flip_h = true
+script = ExtResource("12_whxc5")
+
+[node name="1" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(494, 260)
+scale = Vector2(0.22375, 0.22375)
+texture = ExtResource("12_new2l")
+
+[node name="2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.333333, 0.65098, 1)
+position = Vector2(429.68, 206.594)
+scale = Vector2(0.0151543, 0.0359374)
+texture = ExtResource("13_bht66")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 388.0
+offset_top = 13.0
+offset_right = 619.0
+offset_bottom = 123.0
+texture = ExtResource("14_kbux7")
+
+[node name="Label2" type="Label" parent="TextureRect2"]
+texture_filter = 2
+texture_repeat = 1
+layout_mode = 0
+offset_left = 2.0
+offset_right = 231.0
+offset_bottom = 111.0
+text = "Точно, є людина, яка намагається все це протистояти. Обороняйте планету Вердіс і Зефір. Облаштовуйте пастки. Ставте захисне поле від порталів."
+label_settings = ExtResource("7_te0ul")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton2" to="TextureButton2" method="_on_pressed"]

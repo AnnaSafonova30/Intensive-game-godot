@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bigy0t12k1f0p"]
+
+[ext_resource type="Texture2D" uid="uid://6w2tlss5seku" path="res://resources/interactive/kill_objects/water_lvl/3.png" id="1_i5cm1"]
+[ext_resource type="Texture2D" uid="uid://vuigkm84h7xt" path="res://resources/interactive/kill_objects/water_lvl/4.png" id="2_c8dgm"]
+[ext_resource type="Texture2D" uid="uid://cyyobjfcqf6w5" path="res://resources/interactive/kill_objects/water_lvl/5.png" id="3_m388l"]
+[ext_resource type="Texture2D" uid="uid://diu7e1e7wjmtw" path="res://resources/interactive/kill_objects/water_lvl/6.png" id="4_tejx0"]
+[ext_resource type="Texture2D" uid="uid://bv1b4p8b22nd3" path="res://resources/interactive/kill_objects/water_lvl/7.png" id="5_iekmu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v1lwu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i5cm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c8dgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m388l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tejx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iekmu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Water" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_v1lwu")
+autoplay = "default"
+frame = 4
+frame_progress = 0.116935

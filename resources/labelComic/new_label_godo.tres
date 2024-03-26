@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cco1pt3qaiuvl"]
+
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="1_w7o7f"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_w7o7f")
+font_size = 17
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+shadow_color = Color(1, 1, 1, 0)

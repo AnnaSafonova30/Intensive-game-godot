@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://dc5cctq1i8h43"]
+
+[ext_resource type="Texture2D" uid="uid://cyr4h7hqo6kj1" path="res://resources/backgrounds/empty.png" id="1_6xvt0"]
+[ext_resource type="Texture2D" uid="uid://cd0nre0i4y0rp" path="res://resources/paper.png" id="2_880e5"]
+[ext_resource type="Texture2D" uid="uid://dwteqfofofa7w" path="res://resources/decorations/pluton.png" id="2_d43p5"]
+[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="3_rnbde"]
+[ext_resource type="Texture2D" uid="uid://bmlvc2t6tk8o3" path="res://resources/mobile_buttons/somewhere_need_this_button.png" id="4_uwiek"]
+[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="5_uh7g4"]
+[ext_resource type="Script" path="res://scripts/move_from_comics_to_lvl.gd" id="6_l8h1n"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="7_lp6kl"]
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="8_et7lp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uu5di"]
+font = ExtResource("8_et7lp")
+font_size = 40
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 30
+shadow_color = Color(0, 0, 0, 0.0784314)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -86.0
+offset_top = -2.0
+offset_right = 1482.0
+offset_bottom = 792.0
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("1_6xvt0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(619, 352)
+rotation = -1.5708
+scale = Vector2(16.479, 24.1393)
+texture = ExtResource("2_880e5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(594, 340)
+scale = Vector2(0.571164, 0.571164)
+texture = ExtResource("2_d43p5")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1185.0
+offset_top = 627.0
+offset_right = 1204.0
+offset_bottom = 646.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_rnbde")
+texture_pressed = ExtResource("4_uwiek")
+texture_hover = ExtResource("5_uh7g4")
+script = ExtResource("6_l8h1n")
+levelTeleport = "first_LVL"
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 1.00012
+offset_top = 626.0
+offset_right = 20.0001
+offset_bottom = 645.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_rnbde")
+texture_pressed = ExtResource("4_uwiek")
+texture_hover = ExtResource("5_uh7g4")
+flip_h = true
+script = ExtResource("7_lp6kl")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 121.0
+offset_top = 38.0
+offset_right = 1141.0
+offset_bottom = 677.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="Container" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/Container"]
+layout_mode = 2
+text = "Головний герой - історик, який має навички космонавта, вивчив нашу колишню і вирішив помститися плутонові.
+Він завжди приховує своє справжнє ім'я, то за паспортом його звуть Микола, то при розмові його називають постійно Олег, тому ви можете самі називати як хочете.
+2056 Рік. Повстання планет, плутон захопив всесвіт через те, що його відігнали від сонячної системи.Мешканці перейшли до іншої системи.
+Ми історик, вивчали захоплений всесвіт, дізналися, що там раніше жили люди і він вирішив помститися.
+У Плутона так скажемо свої 5 планет, які допомагають його розвиватися. 
+І головному герою разом із капітаном Генадієм та його союзниками повинні перемогти Плутона.
+Наша перша мета – це Пірон, дана планета має армію ящірок, які підтримали Плутона і потрібно цю планету знищити.
+Після цього ми повинні знищити решту 4 планет і знищити саму плутону.
+● Кріос
+● Аксис
+● Вердіс
+● Зефір
+Бажаю успіхів до проходження!"
+label_settings = SubResource("LabelSettings_uu5di")
+vertical_alignment = 3
+autowrap_mode = 3
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton2" to="TextureButton2" method="_on_pressed"]

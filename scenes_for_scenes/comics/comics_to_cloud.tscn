@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://cpvmspknldvjp"]
+
+[ext_resource type="Script" path="res://scripts/saveLevel/comics_to_cloud.gd" id="1_3jx3f"]
+[ext_resource type="Texture2D" uid="uid://cyr4h7hqo6kj1" path="res://resources/backgrounds/empty.png" id="1_c4f82"]
+[ext_resource type="Texture2D" uid="uid://1g5y88hl76yi" path="res://resources/comicses/3/1_3.png" id="2_hqgjo"]
+[ext_resource type="Texture2D" uid="uid://d4njdvdinagqc" path="res://resources/comics/2_3.png" id="3_14dax"]
+[ext_resource type="Texture2D" uid="uid://bek1vah3itmk3" path="res://resources/comics/3_3.png" id="4_0csjh"]
+[ext_resource type="Texture2D" uid="uid://bb7d317a2k8x6" path="res://resources/comics/4_3.png" id="5_cebm2"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="6_1y0vm"]
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="7_s3ie3"]
+[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="8_4s7se"]
+[ext_resource type="Texture2D" uid="uid://bmlvc2t6tk8o3" path="res://resources/mobile_buttons/somewhere_need_this_button.png" id="9_nfr1k"]
+[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="10_ewrl0"]
+[ext_resource type="Script" path="res://scripts/move_from_comics_to_lvl.gd" id="11_kgenl"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="12_wiie2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1l5vv"]
+line_spacing = 0.0
+font = ExtResource("6_1y0vm")
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u2pge"]
+font = ExtResource("7_s3ie3")
+font_size = 25
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3jx3f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -86.0
+offset_top = -2.0
+offset_right = 1482.0
+offset_bottom = 792.0
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("1_c4f82")
+
+[node name="45" type="Sprite2D" parent="."]
+position = Vector2(413.547, 179.547)
+scale = Vector2(3.59094, 3.59094)
+texture = ExtResource("2_hqgjo")
+
+[node name="46" type="Sprite2D" parent="."]
+position = Vector2(772.453, 181.547)
+scale = Vector2(3.59094, 3.59094)
+texture = ExtResource("3_14dax")
+
+[node name="48" type="Sprite2D" parent="."]
+position = Vector2(413.953, 540.047)
+scale = Vector2(3.60094, 3.60094)
+texture = ExtResource("4_0csjh")
+
+[node name="49" type="Sprite2D" parent="."]
+position = Vector2(769.453, 537.453)
+scale = Vector2(3.53094, 3.53094)
+texture = ExtResource("5_cebm2")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 399.0
+offset_top = 437.0
+offset_right = 562.0
+offset_bottom = 564.0
+text = "Enemy aircraft present
+Lizards and rats present"
+label_settings = SubResource("LabelSettings_1l5vv")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Label2"]
+texture_filter = 2
+layout_mode = 0
+offset_left = -408.0
+offset_top = -434.0
+offset_right = -169.0
+offset_bottom = -176.0
+text = "Капітан Геннадій каже: \"Ми змогли обійти захист Плутона та знищити зв'язки з Вердісом. Також розвідник передав інформацію про планету Зефір\""
+label_settings = SubResource("LabelSettings_u2pge")
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1185.0
+offset_top = 627.0
+offset_right = 1204.0
+offset_bottom = 646.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("8_4s7se")
+texture_pressed = ExtResource("9_nfr1k")
+texture_hover = ExtResource("10_ewrl0")
+script = ExtResource("11_kgenl")
+levelTeleport = "cloudlvl"
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 1.00012
+offset_top = 626.0
+offset_right = 20.0001
+offset_bottom = 645.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("8_4s7se")
+texture_pressed = ExtResource("9_nfr1k")
+texture_hover = ExtResource("10_ewrl0")
+flip_h = true
+script = ExtResource("12_wiie2")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton2" to="TextureButton2" method="_on_pressed"]

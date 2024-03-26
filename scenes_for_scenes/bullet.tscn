@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4y4opticq2fb"]
+
+[ext_resource type="Texture2D" uid="uid://cki2qqeppa0xi" path="res://resources/interactive/shoot.png" id="1_gja6l"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_mwv56"]
+[ext_resource type="Texture2D" uid="uid://b8twasbjruvlf" path="res://resources/interactive/lightshoot.png" id="3_3t1v5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yn1h"]
+size = Vector2(82, 4)
+
+[node name="bullet" type="Area2D" groups=["bullet"]]
+script = ExtResource("1_mwv56")
+speed = 50.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = 1.0
+offset_right = 83.0
+offset_bottom = 11.0
+texture = ExtResource("1_gja6l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(42, 6)
+scale = Vector2(0.195244, 0.396875)
+energy = 0.5
+texture = ExtResource("3_3t1v5")
+texture_scale = 1.6
+
+[node name="bullet" type="CollisionShape2D" parent="."]
+position = Vector2(41, 6)
+shape = SubResource("RectangleShape2D_2yn1h")
+
+[node name="EnemyDed" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="EnemyDed" to="." method="_on_enemy_ded_timeout"]

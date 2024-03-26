@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1d0jspeoyw5p"]
+
+[ext_resource type="Texture2D" uid="uid://dq134td8wg43v" path="res://resources/interactive/kill_objects/acid_lvl/1.png" id="1_f71vh"]
+[ext_resource type="Texture2D" uid="uid://ctmsjphl42ea7" path="res://resources/interactive/kill_objects/acid_lvl/2.png" id="2_2dhjs"]
+[ext_resource type="Texture2D" uid="uid://ne22kxl323x8" path="res://resources/interactive/kill_objects/acid_lvl/3.png" id="3_n5k5q"]
+[ext_resource type="Texture2D" uid="uid://d1i5e1gv3bns0" path="res://resources/interactive/kill_objects/acid_lvl/4.png" id="4_m2big"]
+[ext_resource type="Texture2D" uid="uid://dc1thlc1vl65d" path="res://resources/interactive/kill_objects/acid_lvl/5.png" id="5_x2qs1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ma1dq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f71vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2dhjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n5k5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m2big")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x2qs1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(50, 50)
+sprite_frames = SubResource("SpriteFrames_ma1dq")
+autoplay = "default"
+frame_progress = 0.781895

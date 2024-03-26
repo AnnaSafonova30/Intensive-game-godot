@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://docqisup1ghcw"]
+
+[ext_resource type="Texture2D" uid="uid://bjtouj3c0xchk" path="res://resources/interactive/acid_rain/rain.png" id="1_2lspa"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+scale = Vector2(50, 1)
+amount = 5000
+lifetime = 13.0
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource("1_2lspa")
+emission_shape = 2
+emission_sphere_radius = 128.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5

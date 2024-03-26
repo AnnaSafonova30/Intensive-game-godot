@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://btgw70pc31sjr"]
+
+[ext_resource type="Texture2D" uid="uid://clrlxvxwojagc" path="res://resources/interactive/acid_rain/fog.png" id="1_b8m6d"]
+[ext_resource type="Script" path="res://scripts/Fog.gd" id="2_vns6x"]
+
+[node name="Fog" type="Sprite2D"]
+position = Vector2(71.5, 68.5)
+scale = Vector2(1.43, 1.43)
+texture = ExtResource("1_b8m6d")
+script = ExtResource("2_vns6x")

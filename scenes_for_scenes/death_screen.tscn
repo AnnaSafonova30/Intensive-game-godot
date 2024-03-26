@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn67pl1qeoet"]
+
+[ext_resource type="Script" path="res://scenes_for_scenes/death_screen.gd" id="1_3kjva"]
+[ext_resource type="PackedScene" uid="uid://lc7ucyr1dsos" path="res://scenes_for_scenes/buttons_for_dead_screen.tscn" id="1_mg7ew"]
+[ext_resource type="Texture2D" uid="uid://d0fw5fj1d7d7c" path="res://resources/backgrounds/oleg_sdoh_v1.png" id="2_7pvoj"]
+[ext_resource type="FontFile" uid="uid://cp1vooogm2tjc" path="res://resources/fonts/upheavtt.ttf" id="2_orudh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awt1t"]
+bg_color = Color(0.670588, 0, 0.0941176, 0.239216)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kf1ga"]
+font = ExtResource("2_orudh")
+font_size = 100
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOverScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3kjva")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(31.9634, 18.0284)
+color = Color(1, 0.356863, 0.290196, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1285.0
+offset_bottom = 725.0
+texture = ExtResource("2_7pvoj")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -436.0
+offset_top = -280.0
+offset_right = 418.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0087, 1.10886)
+theme_override_styles/panel = SubResource("StyleBoxFlat_awt1t")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 119.956
+offset_top = 16.2329
+offset_right = 683.956
+offset_bottom = 149.233
+text = "Game Over"
+label_settings = SubResource("LabelSettings_kf1ga")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttonsForDeadScreen" parent="." instance=ExtResource("1_mg7ew")]
+layout_mode = 1
+offset_left = 493.0
+offset_top = 237.0
+offset_right = -546.0
+offset_bottom = -289.0

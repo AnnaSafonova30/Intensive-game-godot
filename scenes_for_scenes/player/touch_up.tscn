@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://8p3qdljj6251"]
+
+[ext_resource type="Texture2D" uid="uid://caij0yycfc3kt" path="res://resources/mobile_buttons/up_pressed.png" id="1_dbcdr"]
+[ext_resource type="Texture2D" uid="uid://blct6h5awyq1i" path="res://resources/mobile_buttons/up.png" id="2_5clhv"]
+
+[node name="UP" type="TouchScreenButton"]
+texture_normal = ExtResource("1_dbcdr")
+texture_pressed = ExtResource("2_5clhv")
+visibility_mode = 1

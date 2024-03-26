@@ -1,0 +1,584 @@
+[gd_scene load_steps=30 format=3 uid="uid://c4gwg7wj7pwft"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_idjqc"]
+[ext_resource type="Texture2D" uid="uid://cu50y7dk5txq0" path="res://resources/backgrounds/settings_menu.png" id="2_54auv"]
+[ext_resource type="Texture2D" uid="uid://cxi7a7uyvpj55" path="res://resources/player/idle/1.png" id="3_c5em7"]
+[ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="3_tw3h1"]
+[ext_resource type="Script" path="res://scripts/Skin.gd" id="4_4eroj"]
+[ext_resource type="Script" path="res://scripts/chooseSkin.gd" id="5_km4nl"]
+[ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="5_yvtia"]
+[ext_resource type="Texture2D" uid="uid://de44wqbahpcjf" path="res://resources/buttons/pressed.png" id="7_r1st7"]
+[ext_resource type="Texture2D" uid="uid://bkiwlfnpeggk4" path="res://resources/buttons/hovered.png" id="8_kj0og"]
+[ext_resource type="Script" path="res://scripts/canItbeEnabled.gd" id="10_ep3r4"]
+[ext_resource type="Texture2D" uid="uid://c7qcyjqpuxytw" path="res://resources/buyButton/button.png" id="11_1r0yn"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="11_71tg3"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="11_kkpn5"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="12_7jc7r"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="12_78yr4"]
+[ext_resource type="Texture2D" uid="uid://buo80lhxdkbt4" path="res://resources/buyButton/hovered.png" id="12_t6fj0"]
+[ext_resource type="Texture2D" uid="uid://duwcpok53mnnx" path="res://resources/buyButton/pressed.png" id="13_igmhr"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="13_pv0nk"]
+[ext_resource type="Script" path="res://scripts/buy.gd" id="14_edqwj"]
+[ext_resource type="AudioStream" uid="uid://cetpjii33jmy1" path="res://resources/sounds/soundtrack/Shop.wav" id="15_02tja"]
+[ext_resource type="Script" path="res://scripts/music/main.gd" id="16_8hsk2"]
+[ext_resource type="Texture2D" uid="uid://bwp5ewqkv6j77" path="res://resources/interactive/crystal.png" id="18_c2qqb"]
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="19_4ddlc"]
+[ext_resource type="Script" path="res://scripts/checkValue.gd" id="20_wps2o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7075f"]
+font = ExtResource("3_tw3h1")
+font_size = 55
+shadow_color = Color(0, 0, 0, 0.792157)
+
+[sub_resource type="LabelSettings" id="LabelSettings_omca4"]
+font = ExtResource("19_4ddlc")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_f4fj0"]
+font = ExtResource("3_tw3h1")
+font_size = 60
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.321569)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wmxnt"]
+font = ExtResource("11_71tg3")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_i88kv"]
+font = ExtResource("19_4ddlc")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Skins" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_idjqc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_54auv")
+expand_mode = 1
+
+[node name="Container" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0677083
+anchor_top = 0.0540123
+anchor_right = 0.938368
+anchor_bottom = 0.935185
+offset_left = 157.333
+offset_top = 32.1111
+offset_right = -103.111
+offset_bottom = -42.3332
+grow_horizontal = 2
+
+[node name="Skin" type="TextureRect" parent="Container"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+texture = ExtResource("3_c5em7")
+script = ExtResource("4_4eroj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Stretch" type="BoxContainer" parent="Container/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_km4nl")
+skin = "default"
+
+[node name="default" type="TextureButton" parent="Container/VBoxContainer/Stretch"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch/default"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Default"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stretch4" type="BoxContainer" parent="Container/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_km4nl")
+
+[node name="jungle" type="TextureButton" parent="Container/VBoxContainer/Stretch4"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+texture_disabled = ExtResource("5_yvtia")
+stretch_mode = 0
+script = ExtResource("10_ep3r4")
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch4/jungle"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jungle"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buy" type="TextureButton" parent="Container/VBoxContainer/Stretch4"]
+visible = false
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("11_1r0yn")
+texture_pressed = ExtResource("12_t6fj0")
+texture_hover = ExtResource("13_igmhr")
+texture_disabled = ExtResource("5_yvtia")
+stretch_mode = 0
+script = ExtResource("14_edqwj")
+price = 30
+
+[node name="price" type="Label" parent="Container/VBoxContainer/Stretch4/buy"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.99963
+offset_top = -31.0
+offset_right = 138.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "30"
+label_settings = SubResource("LabelSettings_omca4")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer/Stretch4/buy"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 22.0
+offset_right = 190.0
+offset_bottom = 87.0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("18_c2qqb")
+
+[node name="Stretch2" type="BoxContainer" parent="Container/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_km4nl")
+skin = "fire"
+
+[node name="fire" type="TextureButton" parent="Container/VBoxContainer/Stretch2"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+stretch_mode = 0
+script = ExtResource("10_ep3r4")
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch2/fire"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fire"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buy" type="TextureButton" parent="Container/VBoxContainer/Stretch2"]
+visible = false
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("11_1r0yn")
+texture_pressed = ExtResource("12_t6fj0")
+texture_hover = ExtResource("13_igmhr")
+texture_disabled = ExtResource("5_yvtia")
+stretch_mode = 0
+script = ExtResource("14_edqwj")
+price = 20
+item_to_buy = "fire"
+
+[node name="price" type="Label" parent="Container/VBoxContainer/Stretch2/buy"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.99963
+offset_top = -31.0
+offset_right = 138.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "20"
+label_settings = SubResource("LabelSettings_omca4")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer/Stretch2/buy"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 22.0
+offset_right = 190.0
+offset_bottom = 87.0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("18_c2qqb")
+
+[node name="Stretch3" type="BoxContainer" parent="Container/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_km4nl")
+skin = "wind"
+
+[node name="wind" type="TextureButton" parent="Container/VBoxContainer/Stretch3"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+stretch_mode = 0
+script = ExtResource("10_ep3r4")
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch3/wind"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Wind"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buy" type="TextureButton" parent="Container/VBoxContainer/Stretch3"]
+visible = false
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("11_1r0yn")
+texture_pressed = ExtResource("12_t6fj0")
+texture_hover = ExtResource("13_igmhr")
+texture_disabled = ExtResource("5_yvtia")
+stretch_mode = 0
+script = ExtResource("14_edqwj")
+price = 25
+item_to_buy = "wind"
+
+[node name="price" type="Label" parent="Container/VBoxContainer/Stretch3/buy"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.99963
+offset_top = -31.0
+offset_right = 138.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "15"
+label_settings = SubResource("LabelSettings_omca4")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer/Stretch3/buy"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 22.0
+offset_right = 190.0
+offset_bottom = 87.0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("18_c2qqb")
+
+[node name="Stretch5" type="BoxContainer" parent="Container/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_km4nl")
+skin = "cold"
+
+[node name="cold" type="TextureButton" parent="Container/VBoxContainer/Stretch5"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+stretch_mode = 0
+script = ExtResource("10_ep3r4")
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch5/cold"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cold"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buy" type="TextureButton" parent="Container/VBoxContainer/Stretch5"]
+visible = false
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("11_1r0yn")
+texture_pressed = ExtResource("12_t6fj0")
+texture_hover = ExtResource("13_igmhr")
+texture_disabled = ExtResource("5_yvtia")
+stretch_mode = 0
+script = ExtResource("14_edqwj")
+price = 15
+item_to_buy = "cold"
+
+[node name="price" type="Label" parent="Container/VBoxContainer/Stretch5/buy"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.99963
+offset_top = -31.0
+offset_right = 138.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "25"
+label_settings = SubResource("LabelSettings_omca4")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer/Stretch5/buy"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 22.0
+offset_right = 190.0
+offset_bottom = 87.0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("18_c2qqb")
+
+[node name="Stretch6" type="BoxContainer" parent="Container/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_km4nl")
+skin = "acid"
+
+[node name="acid" type="TextureButton" parent="Container/VBoxContainer/Stretch6"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+stretch_mode = 0
+script = ExtResource("10_ep3r4")
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch6/acid"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Acid"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buy" type="TextureButton" parent="Container/VBoxContainer/Stretch6"]
+visible = false
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("11_1r0yn")
+texture_pressed = ExtResource("12_t6fj0")
+texture_hover = ExtResource("13_igmhr")
+texture_disabled = ExtResource("5_yvtia")
+stretch_mode = 0
+script = ExtResource("14_edqwj")
+price = 10
+item_to_buy = "acid"
+
+[node name="price" type="Label" parent="Container/VBoxContainer/Stretch6/buy"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.99963
+offset_top = -31.0
+offset_right = 138.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = SubResource("LabelSettings_omca4")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer/Stretch6/buy"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 22.0
+offset_right = 190.0
+offset_bottom = 87.0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("18_c2qqb")
+
+[node name="Main_menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 578.0
+offset_right = 110.0
+offset_bottom = 597.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("11_kkpn5")
+texture_pressed = ExtResource("12_78yr4")
+texture_hover = ExtResource("12_78yr4")
+script = ExtResource("13_pv0nk")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+anchor_left = 0.0291667
+anchor_top = 0.0277778
+anchor_right = 0.0291667
+anchor_bottom = 0.0277778
+offset_left = 87.0
+offset_top = 37.0
+offset_right = 487.0
+offset_bottom = 109.0
+text = "Skins"
+label_settings = SubResource("LabelSettings_f4fj0")
+metadata/_edit_use_anchors_ = true
+
+[node name="FPSCounter" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_wmxnt")
+script = ExtResource("12_7jc7r")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_02tja")
+script = ExtResource("16_8hsk2")
+
+[node name="Value" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 122.0
+offset_top = 126.0
+offset_right = 222.0
+offset_bottom = 191.0
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="Value"]
+custom_minimum_size = Vector2(45, 65)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("18_c2qqb")
+
+[node name="Label" type="Label" parent="Value"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0"
+label_settings = SubResource("LabelSettings_i88kv")
+vertical_alignment = 1
+script = ExtResource("20_wps2o")
+
+[connection signal="pressed" from="Container/VBoxContainer/Stretch/default" to="Container/VBoxContainer/Stretch" method="_on_texture_rect_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch4/jungle" to="Container/VBoxContainer/Stretch4" method="_on_texture_rect_pressed"]
+[connection signal="button_down" from="Container/VBoxContainer/Stretch4/buy" to="Container/VBoxContainer/Stretch4/buy" method="_on_button_down"]
+[connection signal="button_up" from="Container/VBoxContainer/Stretch4/buy" to="Container/VBoxContainer/Stretch4/buy" method="_on_button_up"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch4/buy" to="." method="_on_buy_pressed" binds= [NodePath("Container/VBoxContainer/Stretch4/buy")]]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch2/fire" to="Container/VBoxContainer/Stretch2" method="_on_texture_rect_pressed"]
+[connection signal="button_down" from="Container/VBoxContainer/Stretch2/buy" to="Container/VBoxContainer/Stretch2/buy" method="_on_button_down"]
+[connection signal="button_up" from="Container/VBoxContainer/Stretch2/buy" to="Container/VBoxContainer/Stretch2/buy" method="_on_button_up"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch2/buy" to="." method="_on_buy_pressed" binds= [NodePath("Container/VBoxContainer/Stretch2/buy")]]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch3/wind" to="Container/VBoxContainer/Stretch3" method="_on_texture_rect_pressed"]
+[connection signal="button_down" from="Container/VBoxContainer/Stretch3/buy" to="Container/VBoxContainer/Stretch3/buy" method="_on_button_down"]
+[connection signal="button_up" from="Container/VBoxContainer/Stretch3/buy" to="Container/VBoxContainer/Stretch3/buy" method="_on_button_up"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch3/buy" to="." method="_on_buy_pressed" binds= [NodePath("Container/VBoxContainer/Stretch3/buy")]]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch5/cold" to="Container/VBoxContainer/Stretch5" method="_on_texture_rect_pressed"]
+[connection signal="button_down" from="Container/VBoxContainer/Stretch5/buy" to="Container/VBoxContainer/Stretch5/buy" method="_on_button_down"]
+[connection signal="button_up" from="Container/VBoxContainer/Stretch5/buy" to="Container/VBoxContainer/Stretch5/buy" method="_on_button_up"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch5/buy" to="." method="_on_buy_pressed" binds= [NodePath("Container/VBoxContainer/Stretch5/buy")]]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch6/acid" to="Container/VBoxContainer/Stretch6" method="_on_texture_rect_pressed"]
+[connection signal="button_down" from="Container/VBoxContainer/Stretch6/buy" to="Container/VBoxContainer/Stretch6/buy" method="_on_button_down"]
+[connection signal="button_up" from="Container/VBoxContainer/Stretch6/buy" to="Container/VBoxContainer/Stretch6/buy" method="_on_button_up"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch6/buy" to="." method="_on_buy_pressed" binds= [NodePath("Container/VBoxContainer/Stretch6/buy")]]
+[connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

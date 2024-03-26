@@ -1,0 +1,473 @@
+[gd_scene load_steps=28 format=3 uid="uid://b5vymv8nu0kbf"]
+
+[ext_resource type="Texture2D" uid="uid://cu50y7dk5txq0" path="res://resources/backgrounds/settings_menu.png" id="1_8yu82"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ah3u8"]
+[ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="2_k7gyf"]
+[ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="3_makoq"]
+[ext_resource type="Script" path="res://scripts/options/V-Sync.gd" id="4_p555f"]
+[ext_resource type="Texture2D" uid="uid://bcdbr2haalccx" path="res://resources/buttons/galochka_ne_pressed.png" id="5_l8omh"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="7_12yyw"]
+[ext_resource type="Script" path="res://scripts/options/Stretch.gd" id="7_cegnr"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="8_38fo4"]
+[ext_resource type="Script" path="res://scripts/options/Fullscreen.gd" id="8_dv38n"]
+[ext_resource type="Texture2D" uid="uid://crti7gan5irbw" path="res://resources/ui/keyboard/a.png" id="9_5f8mo"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="9_50l63"]
+[ext_resource type="Script" path="res://scripts/30FPS.gd" id="9_bc3nx"]
+[ext_resource type="Script" path="res://scripts/options/30FPS.gd" id="9_pbqbm"]
+[ext_resource type="Texture2D" uid="uid://cd18ffpg6mai" path="res://resources/ui/keyboard/d.png" id="10_42mhm"]
+[ext_resource type="Script" path="res://scripts/options/Camera Smooth.gd" id="10_joptr"]
+[ext_resource type="Texture2D" uid="uid://drcxx7lvouwt5" path="res://resources/ui/keyboard/f.png" id="11_jmkpy"]
+[ext_resource type="Script" path="res://scripts/Camera Smooth.gd" id="11_wd5ut"]
+[ext_resource type="Texture2D" uid="uid://b266fneak1wux" path="res://resources/ui/keyboard/w.png" id="12_jywgo"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="18_ygdf2"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="19_seyt7"]
+[ext_resource type="AudioStream" uid="uid://bd5g1cux872bw" path="res://main_scenes/main.mp3" id="22_uo5vn"]
+[ext_resource type="Script" path="res://scripts/music/main.gd" id="23_oaj30"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6sjpc"]
+font = ExtResource("2_k7gyf")
+font_size = 64
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8etd1"]
+font = ExtResource("2_k7gyf")
+font_size = 55
+shadow_color = Color(0, 0, 0, 0.792157)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f4fj0"]
+font = ExtResource("2_k7gyf")
+font_size = 60
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.321569)
+
+[sub_resource type="LabelSettings" id="LabelSettings_80qa6"]
+font = ExtResource("18_ygdf2")
+font_size = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ah3u8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8yu82")
+expand_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0677083
+anchor_top = 0.0540123
+anchor_right = 0.938368
+anchor_bottom = 0.935185
+grow_horizontal = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(600, 570)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+texture_filter = 3
+layout_mode = 2
+text = "Video"
+label_settings = SubResource("LabelSettings_6sjpc")
+horizontal_alignment = 2
+
+[node name="V-Sync" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("4_p555f")
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/V-Sync"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+texture = ExtResource("3_makoq")
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/V-Sync/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -11.5
+offset_right = 29.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "V-Sync (Leave it on)"
+label_settings = SubResource("LabelSettings_8etd1")
+horizontal_alignment = 3
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/V-Sync"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_l8omh")
+texture_pressed = ExtResource("5_l8omh")
+texture_hover = ExtResource("5_l8omh")
+stretch_mode = 0
+
+[node name="Stretch" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("7_cegnr")
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Stretch"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+texture = ExtResource("3_makoq")
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Stretch/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -11.5
+offset_right = 29.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stretch Screen"
+label_settings = SubResource("LabelSettings_8etd1")
+horizontal_alignment = 3
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Stretch"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_l8omh")
+texture_pressed = ExtResource("5_l8omh")
+texture_hover = ExtResource("5_l8omh")
+stretch_mode = 0
+
+[node name="Fullscreen" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("8_dv38n")
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Fullscreen"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+texture = ExtResource("3_makoq")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Fullscreen/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -30.0
+offset_right = 228.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fullscreen
+"
+label_settings = SubResource("LabelSettings_8etd1")
+horizontal_alignment = 3
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Fullscreen"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_l8omh")
+texture_pressed = ExtResource("5_l8omh")
+texture_hover = ExtResource("5_l8omh")
+stretch_mode = 0
+
+[node name="30FPS" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("9_bc3nx")
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/30FPS"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+texture = ExtResource("3_makoq")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/30FPS/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -11.5
+offset_right = 29.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Energy Saving"
+label_settings = SubResource("LabelSettings_8etd1")
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/30FPS"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_l8omh")
+texture_pressed = ExtResource("5_l8omh")
+texture_hover = ExtResource("5_l8omh")
+stretch_mode = 0
+
+[node name="HighGraphics" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("9_pbqbm")
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/HighGraphics"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+texture = ExtResource("3_makoq")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HighGraphics/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -11.5
+offset_right = 29.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Framerate Counter"
+label_settings = SubResource("LabelSettings_8etd1")
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/HighGraphics"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_l8omh")
+texture_pressed = ExtResource("5_l8omh")
+texture_hover = ExtResource("5_l8omh")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+texture_filter = 3
+layout_mode = 2
+text = "Gameplay"
+label_settings = SubResource("LabelSettings_6sjpc")
+horizontal_alignment = 2
+
+[node name="Camera Smooth" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("11_wd5ut")
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Camera Smooth"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+texture = ExtResource("3_makoq")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Camera Smooth/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -11.5
+offset_right = 29.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Camera Smooth"
+label_settings = SubResource("LabelSettings_8etd1")
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Camera Smooth"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_l8omh")
+texture_pressed = ExtResource("5_l8omh")
+texture_hover = ExtResource("5_l8omh")
+stretch_mode = 0
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+texture_filter = 3
+layout_mode = 2
+text = "Audio"
+label_settings = SubResource("LabelSettings_6sjpc")
+horizontal_alignment = 2
+
+[node name="Music" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("10_joptr")
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Music"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+texture = ExtResource("3_makoq")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Music/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -11.5
+offset_right = 29.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_8etd1")
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Music"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_l8omh")
+texture_pressed = ExtResource("5_l8omh")
+texture_hover = ExtResource("5_l8omh")
+stretch_mode = 0
+
+[node name="Main_menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 578.0
+offset_right = 110.0
+offset_bottom = 597.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("7_12yyw")
+texture_pressed = ExtResource("8_38fo4")
+texture_hover = ExtResource("8_38fo4")
+script = ExtResource("9_50l63")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+anchor_left = 0.0291667
+anchor_top = 0.0277778
+anchor_right = 0.0291667
+anchor_bottom = 0.0277778
+offset_left = 87.0
+offset_top = 37.0
+offset_right = 487.0
+offset_bottom = 109.0
+text = "Options"
+label_settings = SubResource("LabelSettings_f4fj0")
+metadata/_edit_use_anchors_ = true
+
+[node name="30FPS2" type="BoxContainer" parent="."]
+layout_mode = 2
+offset_left = 146.0
+offset_top = 143.0
+offset_right = 518.0
+offset_bottom = 233.0
+
+[node name="TextureRect" type="TextureRect" parent="30FPS2"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("9_5f8mo")
+
+[node name="Label" type="Label" parent="30FPS2"]
+texture_filter = 3
+layout_mode = 2
+text = " - Move Left"
+label_settings = SubResource("LabelSettings_8etd1")
+
+[node name="30FPS3" type="BoxContainer" parent="."]
+layout_mode = 2
+offset_left = 146.0
+offset_top = 243.0
+offset_right = 520.0
+offset_bottom = 333.0
+
+[node name="TextureRect" type="TextureRect" parent="30FPS3"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("10_42mhm")
+
+[node name="Label" type="Label" parent="30FPS3"]
+texture_filter = 3
+layout_mode = 2
+text = " - Move Right"
+label_settings = SubResource("LabelSettings_8etd1")
+
+[node name="30FPS4" type="BoxContainer" parent="."]
+layout_mode = 2
+offset_left = 144.0
+offset_top = 343.0
+offset_right = 518.0
+offset_bottom = 433.0
+
+[node name="TextureRect" type="TextureRect" parent="30FPS4"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("11_jmkpy")
+
+[node name="Label" type="Label" parent="30FPS4"]
+texture_filter = 3
+layout_mode = 2
+text = " - Fire"
+label_settings = SubResource("LabelSettings_8etd1")
+
+[node name="30FPS5" type="BoxContainer" parent="."]
+layout_mode = 2
+offset_left = 144.0
+offset_top = 443.0
+offset_right = 518.0
+offset_bottom = 533.0
+
+[node name="TextureRect" type="TextureRect" parent="30FPS5"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("12_jywgo")
+
+[node name="Label" type="Label" parent="30FPS5"]
+texture_filter = 3
+layout_mode = 2
+text = " - Jump"
+label_settings = SubResource("LabelSettings_8etd1")
+
+[node name="FPSCounter" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_80qa6")
+script = ExtResource("19_seyt7")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_uo5vn")
+script = ExtResource("23_oaj30")
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/V-Sync/TextureButton" to="ScrollContainer/VBoxContainer/V-Sync" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Stretch/TextureButton" to="ScrollContainer/VBoxContainer/Stretch" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Fullscreen/TextureButton" to="ScrollContainer/VBoxContainer/Fullscreen" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/30FPS/TextureButton" to="ScrollContainer/VBoxContainer/30FPS" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HighGraphics/TextureButton" to="ScrollContainer/VBoxContainer/HighGraphics" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Camera Smooth/TextureButton" to="ScrollContainer/VBoxContainer/Camera Smooth" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Music/TextureButton" to="ScrollContainer/VBoxContainer/Music" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

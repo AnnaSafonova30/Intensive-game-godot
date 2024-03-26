@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://dq1cj8kk60s1b"]
+
+[ext_resource type="Script" path="res://scripts/moving_platforms.gd" id="1_3nx0l"]
+[ext_resource type="Texture2D" uid="uid://cghfqfg0bfaxa" path="res://resources/interactive/fixedMoveplatform/fire.png" id="2_jnpwc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v2pu"]
+size = Vector2(35, 32)
+
+[sub_resource type="Animation" id="Animation_xsp33"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sr1p5"]
+resource_name = "move_loop"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(177, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3g3r"]
+_data = {
+"RESET": SubResource("Animation_xsp33"),
+"move_loop": SubResource("Animation_sr1p5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yup10"]
+size = Vector2(22.6274, 21.9203)
+
+[node name="MovingPlatform" type="Node2D"]
+script = ExtResource("1_3nx0l")
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+position = Vector2(-2.44843, -0.5)
+scale = Vector2(1, 1.03125)
+texture = ExtResource("2_jnpwc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(-2.94843, -1)
+shape = SubResource("RectangleShape2D_6v2pu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+libraries = {
+"": SubResource("AnimationLibrary_p3g3r")
+}
+speed_scale = 0.5
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Platform"]
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/RigidBody2D"]
+position = Vector2(14.8016, -1.25)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_yup10")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform/RigidBody2D"]
+position = Vector2(-19.668, -1.25)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_yup10")

@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtklu5as001qm"]
+
+[ext_resource type="Texture2D" uid="uid://c2hsbfj32ei5l" path="res://resources/interactive/piece_rainbow_stone.png" id="1_7prvb"]
+[ext_resource type="Script" path="res://scripts/crystalTake.gd" id="1_qff5f"]
+
+[sub_resource type="Animation" id="Animation_0lbop"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 30)]
+}
+
+[sub_resource type="Animation" id="Animation_3l42k"]
+resource_name = "pos"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 15), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(15, 30), Vector2(15, 45), Vector2(15, 30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mqboy"]
+_data = {
+"RESET": SubResource("Animation_0lbop"),
+"pos": SubResource("Animation_3l42k")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io8h1"]
+size = Vector2(22, 34)
+
+[node name="Area2D" type="Node2D"]
+position = Vector2(0, 3)
+scale = Vector2(1.54027, 1.32111)
+script = ExtResource("1_qff5f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(15, 30)
+texture = ExtResource("1_7prvb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mqboy")
+}
+autoplay = "pos"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(11, 17)
+shape = SubResource("RectangleShape2D_io8h1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

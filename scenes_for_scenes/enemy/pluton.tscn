@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://c81qeqejepfyy"]
+
+[ext_resource type="Script" path="res://scripts/pluton.gd" id="1_2nunl"]
+[ext_resource type="Texture2D" uid="uid://d154ml08gk7rb" path="res://resources/enemies/Плутон/1.png" id="2_ryx6q"]
+[ext_resource type="Texture2D" uid="uid://kgd3c6kldy84" path="res://resources/enemies/Плутон/2.png" id="3_v6oic"]
+[ext_resource type="Texture2D" uid="uid://dqa6sh6ftiwkh" path="res://resources/enemies/Плутон/3.png" id="4_bhtqp"]
+[ext_resource type="Texture2D" uid="uid://b8twasbjruvlf" path="res://resources/interactive/lightshoot.png" id="6_hojsm"]
+[ext_resource type="AudioStream" uid="uid://5xxs4j30pquu" path="res://resources/sounds/laser.mp3" id="6_vd4lf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncmnt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ryx6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v6oic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bhtqp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14h38"]
+radius = 231.0
+height = 462.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl6kc"]
+size = Vector2(6856, 2769)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sywb"]
+size = Vector2(461, 454)
+
+[node name="Pluton" type="RigidBody2D" groups=["enemy"]]
+scale = Vector2(0.7, 0.7)
+gravity_scale = 0.005
+lock_rotation = true
+script = ExtResource("1_2nunl")
+cant_search_player = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(221, 319)
+scale = Vector2(0.556958, 0.556958)
+sprite_frames = SubResource("SpriteFrames_ncmnt")
+autoplay = "default"
+frame_progress = 0.485794
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(229, 226)
+shape = SubResource("CapsuleShape2D_14h38")
+
+[node name="TimerMove" type="Timer" parent="."]
+
+[node name="FindPlr" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FindPlr"]
+position = Vector2(256, 231)
+shape = SubResource("RectangleShape2D_jl6kc")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(238, 221)
+rotation = 1.5708
+scale = Vector2(1.21913, 3.59144)
+energy = 0.0
+texture = ExtResource("6_hojsm")
+
+[node name="bossHit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bossHit"]
+position = Vector2(230.5, 227)
+shape = SubResource("RectangleShape2D_1sywb")
+
+[node name="Laser" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_vd4lf")
+
+[node name="TimerShoot" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerMove" to="." method="_on_timer_move_timeout"]
+[connection signal="timeout" from="TimerShoot" to="." method="_on_timer_shoot_timeout"]

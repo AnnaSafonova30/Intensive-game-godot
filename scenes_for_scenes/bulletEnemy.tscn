@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7b23gh1uuedj"]
+
+[ext_resource type="Script" path="res://scripts/bulletEnemy.gd" id="1_2re78"]
+[ext_resource type="Texture2D" uid="uid://lcc6arp5uqf5" path="res://resources/enemies/shootenemy.png" id="2_a63xc"]
+[ext_resource type="Texture2D" uid="uid://bwu2fpxn2d55" path="res://resources/enemies/lightenemyshoot.png" id="3_p243o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yn1h"]
+size = Vector2(48, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3varm"]
+size = Vector2(46, 5)
+
+[node name="bulletEnemy" type="RigidBody2D" groups=["bullet"]]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_2re78")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 2.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_a63xc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Dissapear" type="Timer" parent="."]
+
+[node name="bulletEnemy" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="bullet" type="CollisionShape2D" parent="bulletEnemy"]
+modulate = Color(0.976471, 1, 1, 1)
+self_modulate = Color(0.976471, 1, 1, 1)
+position = Vector2(40, 4.5)
+shape = SubResource("RectangleShape2D_2yn1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 4.5)
+shape = SubResource("RectangleShape2D_3varm")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(42, 6)
+scale = Vector2(0.195244, 0.396875)
+texture = ExtResource("3_p243o")
+texture_scale = 1.6
+
+[connection signal="timeout" from="Dissapear" to="." method="_on_dissapear_timeout"]
+[connection signal="body_entered" from="bulletEnemy" to="." method="_on_bullet_enemy_body_entered"]

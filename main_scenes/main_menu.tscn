@@ -1,0 +1,182 @@
+[gd_scene load_steps=23 format=3 uid="uid://b6ffn27mr23ck"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_qnp6r"]
+[ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="1_x7fgi"]
+[ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="2_1sjb4"]
+[ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="2_bj75h"]
+[ext_resource type="Texture2D" uid="uid://bkiwlfnpeggk4" path="res://resources/buttons/hovered.png" id="3_fb5dv"]
+[ext_resource type="Texture2D" uid="uid://de44wqbahpcjf" path="res://resources/buttons/pressed.png" id="4_33mhk"]
+[ext_resource type="Texture2D" uid="uid://dwteqfofofa7w" path="res://resources/decorations/pluton.png" id="5_a3umd"]
+[ext_resource type="Script" path="res://scripts/quit.gd" id="6_jwooe"]
+[ext_resource type="Script" path="res://scripts/playButton.gd" id="6_kb1j2"]
+[ext_resource type="Script" path="res://scripts/optionsOpen.gd" id="7_q4aod"]
+[ext_resource type="Script" path="res://scripts/move_to_comics/Button.gd" id="7_uv8a5"]
+[ext_resource type="Script" path="res://scripts/Button4.gd" id="9_p46du"]
+[ext_resource type="LabelSettings" uid="uid://csq4b44k3m6qq" path="res://resources/labelComic/new_label_big.tres" id="13_rl6ai"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="13_x1mu1"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="14_y4b2k"]
+[ext_resource type="AudioStream" uid="uid://bd5g1cux872bw" path="res://main_scenes/main.mp3" id="15_0ev6n"]
+[ext_resource type="Script" path="res://scripts/music/main.gd" id="16_m0h2q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yu8fb"]
+texture = ExtResource("2_1sjb4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mml2h"]
+texture = ExtResource("3_fb5dv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1ipu"]
+texture = ExtResource("4_33mhk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_f5pbb"]
+font = ExtResource("2_bj75h")
+font_size = 200
+
+[sub_resource type="LabelSettings" id="LabelSettings_n4gvv"]
+font = ExtResource("13_x1mu1")
+font_size = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-0.95, 0)
+script = ExtResource("1_qnp6r")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_x7fgi")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -331.0
+offset_right = 305.0
+offset_bottom = -15.0
+grow_vertical = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bj75h")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yu8fb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
+action_mode = 0
+text = "New game"
+script = ExtResource("7_uv8a5")
+
+[node name="Button5" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bj75h")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yu8fb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
+action_mode = 0
+text = "Continue"
+script = ExtResource("6_kb1j2")
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bj75h")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yu8fb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
+action_mode = 0
+text = "Options"
+script = ExtResource("7_q4aod")
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bj75h")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yu8fb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
+action_mode = 0
+text = "Credits"
+script = ExtResource("9_p46du")
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bj75h")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yu8fb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
+action_mode = 0
+text = "Quit"
+script = ExtResource("6_jwooe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 3823.0
+offset_bottom = 1082.0
+scale = Vector2(0.3, 0.3)
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_a3umd")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 200
+text = "Retribution Of Pluto: 
+The galactic rogue"
+label_settings = SubResource("LabelSettings_f5pbb")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Game Version: 1.23"
+label_settings = ExtResource("13_rl6ai")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="FPSCounter" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_n4gvv")
+script = ExtResource("14_y4b2k")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_0ev6n")
+script = ExtResource("16_m0h2q")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button5" to="VBoxContainer/Button5" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="VBoxContainer/Button4" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="VBoxContainer/Button3" method="_on_pressed"]

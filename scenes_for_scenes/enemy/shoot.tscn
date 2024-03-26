@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://drydfqdxx422l"]
+
+[ext_resource type="Script" path="res://scripts/shoot.gd" id="1_hsgw4"]
+[ext_resource type="Texture2D" uid="uid://dapllkblbe74x" path="res://resources/enemies/enemy Shoots/pixil-frame-0 (7).png" id="2_qta83"]
+[ext_resource type="Texture2D" uid="uid://c4cbl6lxhh5kc" path="res://resources/enemies/enemy Shoots/pixil-frame-0 (8).png" id="3_fav3r"]
+[ext_resource type="Texture2D" uid="uid://b8twasbjruvlf" path="res://resources/interactive/lightshoot.png" id="4_4f8hc"]
+[ext_resource type="AudioStream" uid="uid://5xxs4j30pquu" path="res://resources/sounds/laser.mp3" id="5_jffny"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncmnt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qta83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fav3r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14h38"]
+radius = 30.0
+height = 88.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl6kc"]
+size = Vector2(878.5, 530)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f6yj7"]
+radius = 34.0
+height = 96.0
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["enemy"]]
+gravity_scale = 0.005
+lock_rotation = true
+script = ExtResource("1_hsgw4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 87)
+scale = Vector2(0.822666, 0.822666)
+sprite_frames = SubResource("SpriteFrames_ncmnt")
+autoplay = "default"
+frame_progress = 0.16456
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(35, 52)
+shape = SubResource("CapsuleShape2D_14h38")
+
+[node name="TimerMove" type="Timer" parent="."]
+
+[node name="FindPlr" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FindPlr"]
+position = Vector2(38, 36)
+shape = SubResource("RectangleShape2D_jl6kc")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(36, 56)
+rotation = 1.5708
+scale = Vector2(0.852712, 2.512)
+energy = 0.0
+texture = ExtResource("4_4f8hc")
+
+[node name="hitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(35, 52)
+shape = SubResource("CapsuleShape2D_f6yj7")
+
+[node name="Laser" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jffny")
+
+[node name="TimerShoot" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerMove" to="." method="_on_timer_move_timeout"]
+[connection signal="body_entered" from="FindPlr" to="." method="_on_find_plr_body_entered"]
+[connection signal="body_exited" from="FindPlr" to="." method="_on_find_plr_body_exited"]
+[connection signal="timeout" from="TimerShoot" to="." method="_on_timer_shoot_timeout"]

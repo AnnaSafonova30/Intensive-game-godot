@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://do3pqngdi6xfi"]
+
+[ext_resource type="Texture2D" uid="uid://cyr4h7hqo6kj1" path="res://resources/backgrounds/empty.png" id="1_4l4m3"]
+[ext_resource type="Script" path="res://scripts/saveLevel/comics_to_last.gd" id="1_p04ju"]
+[ext_resource type="Texture2D" uid="uid://57qbw2ub5004" path="res://resources/comicses/6/2_6.png" id="2_7u0gj"]
+[ext_resource type="Texture2D" uid="uid://bd8fpnsgfsyu" path="res://resources/comics/3_6.png" id="3_v3ne1"]
+[ext_resource type="Texture2D" uid="uid://b48lb3c1xetl7" path="res://resources/comics/1_6.png" id="4_iekyu"]
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="5_jf2kg"]
+[ext_resource type="FontFile" uid="uid://cp1vooogm2tjc" path="res://resources/fonts/upheavtt.ttf" id="6_xttg3"]
+[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="7_3x67b"]
+[ext_resource type="Texture2D" uid="uid://bmlvc2t6tk8o3" path="res://resources/mobile_buttons/somewhere_need_this_button.png" id="8_sb6ux"]
+[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="9_qj6lv"]
+[ext_resource type="Script" path="res://scripts/move_from_comics_to_lvl.gd" id="10_wsntx"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="11_ckpj8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uu5di"]
+font = ExtResource("5_jf2kg")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_mmuh0"]
+font = ExtResource("6_xttg3")
+font_size = 70
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_p04ju")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -86.0
+offset_top = -2.0
+offset_right = 1482.0
+offset_bottom = 792.0
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("1_4l4m3")
+
+[node name="43" type="Sprite2D" parent="."]
+position = Vector2(774, 177)
+scale = Vector2(0.701188, 0.701188)
+texture = ExtResource("2_7u0gj")
+
+[node name="44" type="Sprite2D" parent="."]
+position = Vector2(710, 535)
+scale = Vector2(0.479168, 0.479168)
+texture = ExtResource("3_v3ne1")
+
+[node name="45" type="Sprite2D" parent="."]
+position = Vector2(420, 177)
+scale = Vector2(3.545, 3.545)
+texture = ExtResource("4_iekyu")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 2
+offset_left = 951.0
+offset_top = 4.0
+offset_right = 1270.0
+offset_bottom = 307.0
+text = "Головний герой каже: \"тут нічого не видно, відсутнє ядро ​​планети, але знайшлося у них згадка про окупацію Землі\""
+label_settings = SubResource("LabelSettings_uu5di")
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="."]
+texture_filter = 2
+offset_left = 951.0
+offset_top = 355.0
+offset_right = 1270.0
+offset_bottom = 658.0
+text = "Головний герой каже: \"Да почнеться фінал!\""
+label_settings = SubResource("LabelSettings_uu5di")
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="."]
+texture_filter = 2
+offset_left = 245.0
+offset_top = 349.0
+offset_right = 466.0
+offset_bottom = 719.0
+text = "Month Later"
+label_settings = SubResource("LabelSettings_mmuh0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 2
+offset_left = -8.0
+offset_top = 2.0
+offset_right = 238.0
+offset_bottom = 289.0
+text = "Капітан Геннадій каже: \"Олег,
+повідомите обстановку\""
+label_settings = SubResource("LabelSettings_uu5di")
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1185.0
+offset_top = 629.0
+offset_right = 1204.0
+offset_bottom = 648.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("7_3x67b")
+texture_pressed = ExtResource("8_sb6ux")
+texture_hover = ExtResource("9_qj6lv")
+script = ExtResource("10_wsntx")
+levelTeleport = "last_lvl"
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 1.0
+offset_top = 628.0
+offset_right = 20.0
+offset_bottom = 647.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("7_3x67b")
+texture_pressed = ExtResource("8_sb6ux")
+texture_hover = ExtResource("9_qj6lv")
+flip_h = true
+script = ExtResource("11_ckpj8")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton2" to="TextureButton2" method="_on_pressed"]

@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://bu8tbi4v1h6ue"]
+
+[ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="1_87mho"]
+[ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="2_otbhg"]
+[ext_resource type="Texture2D" uid="uid://bkiwlfnpeggk4" path="res://resources/buttons/hovered.png" id="3_beyke"]
+[ext_resource type="Texture2D" uid="uid://de44wqbahpcjf" path="res://resources/buttons/pressed.png" id="4_7q3al"]
+[ext_resource type="Script" path="res://scripts/Resume.gd" id="5_m0lx5"]
+[ext_resource type="Script" path="res://scripts/Quit To Menu.gd" id="6_10q1k"]
+[ext_resource type="Script" path="res://scripts/respawnik.gd" id="6_xenmu"]
+[ext_resource type="Script" path="res://scripts/quit.gd" id="7_n10cj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kfjn"]
+texture = ExtResource("2_otbhg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_meemk"]
+texture = ExtResource("3_beyke")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dfhap"]
+texture = ExtResource("4_7q3al")
+
+[node name="Pause" type="Control"]
+light_mask = 2
+visibility_layer = 2
+z_index = 500
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+self_modulate = Color(0.247059, 0.247059, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.505882)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+light_mask = 2
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_87mho")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_1kfjn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_meemk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dfhap")
+action_mode = 0
+text = "Resume"
+script = ExtResource("5_m0lx5")
+
+[node name="Resume2" type="Button" parent="MarginContainer/VBoxContainer"]
+light_mask = 2
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_87mho")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_1kfjn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_meemk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dfhap")
+action_mode = 0
+text = "Respawn"
+script = ExtResource("6_xenmu")
+
+[node name="Quit To Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+light_mask = 2
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_87mho")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_1kfjn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_meemk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dfhap")
+action_mode = 0
+text = "Quit To Menu"
+script = ExtResource("6_10q1k")
+
+[node name="Leave The Game" type="Button" parent="MarginContainer/VBoxContainer"]
+light_mask = 2
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_87mho")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_1kfjn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_meemk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dfhap")
+action_mode = 0
+text = "Leave The Game"
+script = ExtResource("7_n10cj")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="MarginContainer/VBoxContainer/Resume" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume2" to="MarginContainer/VBoxContainer/Resume2" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit To Menu" to="MarginContainer/VBoxContainer/Quit To Menu" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Leave The Game" to="MarginContainer/VBoxContainer/Leave The Game" method="_on_pressed"]

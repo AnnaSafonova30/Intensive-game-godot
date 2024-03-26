@@ -1,0 +1,362 @@
+[gd_scene load_steps=26 format=3 uid="uid://sb65ec5gut6u"]
+
+[ext_resource type="Shader" path="res://scripts/blur.gdshader" id="1_iomtl"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ny2yd"]
+[ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="2_rd5ja"]
+[ext_resource type="Script" path="res://scripts/titr.gd" id="3_t3n8a"]
+[ext_resource type="Texture2D" uid="uid://dwteqfofofa7w" path="res://resources/decorations/pluton.png" id="3_wff6k"]
+[ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="4_37k7q"]
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="5_3kvqk"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="6_3a8r3"]
+[ext_resource type="FontFile" uid="uid://cp1vooogm2tjc" path="res://resources/fonts/upheavtt.ttf" id="7_nsrrt"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="7_vwmug"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="8_ao7op"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="8_qg3o4"]
+[ext_resource type="Texture2D" uid="uid://dn7nbwh46rebg" path="res://resources/game/logo.png" id="10_ewe4a"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="12_2k57i"]
+[ext_resource type="AudioStream" uid="uid://bd5g1cux872bw" path="res://main_scenes/main.mp3" id="13_gs4tn"]
+[ext_resource type="Script" path="res://scripts/music/main.gd" id="14_3cpq3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7yt4"]
+shader = ExtResource("1_iomtl")
+
+[sub_resource type="LabelSettings" id="LabelSettings_w1vqo"]
+font = ExtResource("5_3kvqk")
+font_size = 200
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yufgj"]
+font = ExtResource("4_37k7q")
+font_size = 200
+outline_size = 35
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h61v1"]
+font = ExtResource("7_nsrrt")
+font_size = 400
+outline_size = 50
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lwabx"]
+font = ExtResource("8_ao7op")
+font_size = 200
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 30
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1hau2"]
+font = ExtResource("4_37k7q")
+font_size = 200
+outline_size = 50
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hxu2d"]
+font = ExtResource("7_nsrrt")
+font_size = 250
+font_color = Color(0.819608, 0.568627, 0, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 50
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8rrf"]
+font = ExtResource("7_nsrrt")
+font_size = 300
+outline_size = 50
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t6y3c"]
+font = ExtResource("8_ao7op")
+font_size = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00195, 1)
+script = ExtResource("1_ny2yd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 2
+material = SubResource("ShaderMaterial_h7yt4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rd5ja")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.549
+offset_top = 390.0
+offset_right = 3481.45
+offset_bottom = 13256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.191819, 0.200276)
+script = ExtResource("3_t3n8a")
+
+[node name="Label19" type="Label" parent="VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+text = "Після довгої битви 
+ми помстилися Плутону, 
+все прийшло в норму 
+і практично всі повернулися 
+до сонячної системи,
+проте деякі вирішили 
+залишитися в кораблі, 
+оскільки вони зацікавлені 
+у вивченні планет та космосу. 
+З Плутоном відбувся 
+мирний договір 
+про який все ж таки 
+Плутон повернуть назад 
+у сонячну систему, 
+а сама сонячна система 
+буде в нормі.
+Плутон погодився,
+і всі помирились.
+Єдине, є питання,
+Чи варто було залишати
+Плутона в живих?
+Цього вже не впізнаємо.
+Дякую за гру!"
+label_settings = SubResource("LabelSettings_w1vqo")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_wff6k")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 200
+text = "Retribution Of Pluto: 
+The galactic rogue"
+label_settings = SubResource("LabelSettings_yufgj")
+
+[node name="BigLabel2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Team Leader"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Coders"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Yaroslav Repan"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Designers"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Safonova Anya"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pasha Ustich"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Yaroslav Repan"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Mykhnenko Danylo"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Artem Matiashov"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label14" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Scripters"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pasha Ustich"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label20" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label18" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Mykhnenko Danylo"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label21" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Technologies"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label15" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SOUNDRAW Inc. — Daigo Kusunoki "
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label16" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Wondershare Software — Tobee Wu"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label17" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Android SDK — Chris Arriola"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Special Thanks To"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label12" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sergey Roman"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label13" type="Label" parent="VBoxContainer"]
+clip_children = 2
+layout_mode = 2
+text = "Nikolai Skripnik"
+label_settings = SubResource("LabelSettings_1hau2")
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("10_ewe4a")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 200
+text = "GODOT ENGINE
+Game JAm 2024"
+label_settings = SubResource("LabelSettings_hxu2d")
+
+[node name="BigLabel8" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Thanks for Playing!"
+label_settings = SubResource("LabelSettings_p8rrf")
+horizontal_alignment = 1
+
+[node name="Main_menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1.52588e-05
+offset_top = 626.0
+offset_right = 19.0
+offset_bottom = 645.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("6_3a8r3")
+texture_pressed = ExtResource("7_vwmug")
+texture_hover = ExtResource("7_vwmug")
+script = ExtResource("8_qg3o4")
+
+[node name="FPSCounter" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1.99615
+offset_top = 3.0
+offset_right = 124.996
+offset_bottom = 54.0
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_t6y3c")
+script = ExtResource("12_2k57i")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_gs4tn")
+script = ExtResource("14_3cpq3")
+
+[connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

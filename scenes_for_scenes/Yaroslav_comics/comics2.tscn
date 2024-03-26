@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://hjuv4odda6tv"]
+
+[ext_resource type="Texture2D" uid="uid://b48lb3c1xetl7" path="res://resources/comics/1_6.png" id="1_4r8wk"]
+[ext_resource type="Texture2D" uid="uid://cqbp5vv5ft7lq" path="res://resources/comics/2_2.png" id="2_etjjh"]
+[ext_resource type="Texture2D" uid="uid://d4njdvdinagqc" path="res://resources/comics/2_3.png" id="3_kx3n6"]
+[ext_resource type="Texture2D" uid="uid://etgqjcyr17bm" path="res://resources/comics/2_5.png" id="4_gg7lo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(649, 386)
+scale = Vector2(5.505, 3.8565)
+texture = ExtResource("1_4r8wk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1222, 381)
+scale = Vector2(5.165, 3.78)
+texture = ExtResource("2_etjjh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(646, 795.644)
+scale = Vector2(5.46875, 3.84712)
+texture = ExtResource("3_kx3n6")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1223, 790)
+scale = Vector2(2.58875, 1.885)
+texture = ExtResource("4_gg7lo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 375.0
+offset_top = 570.0
+offset_right = 1478.0
+offset_bottom = 605.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 922.0
+offset_top = 192.0
+offset_right = 962.0
+offset_bottom = 985.0
+color = Color(0, 0, 0, 1)

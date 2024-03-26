@@ -1,0 +1,172 @@
+[gd_scene load_steps=15 format=3 uid="uid://gdsljeg3iubl"]
+
+[ext_resource type="Script" path="res://scripts/mine-boom.gd" id="1_6wuin"]
+[ext_resource type="Texture2D" uid="uid://v0mkxtcb80wg" path="res://resources/boom_anim/2.png" id="2_htdj0"]
+[ext_resource type="Texture2D" uid="uid://qdasiwpap580" path="res://resources/interactive/jungle_trap/mine.png" id="2_r15pe"]
+[ext_resource type="Texture2D" uid="uid://65nqe2qmx0aq" path="res://resources/boom_anim/3.png" id="3_6leco"]
+[ext_resource type="Texture2D" uid="uid://desmna0e034my" path="res://resources/interactive/jungle_trap/mine_pressed.png" id="3_qlfnv"]
+[ext_resource type="Texture2D" uid="uid://dxgrxokibf1vd" path="res://resources/boom_anim/4.png" id="4_yhp50"]
+[ext_resource type="Texture2D" uid="uid://buuccod88pwm7" path="res://resources/boom_anim/5.png" id="5_xbbkg"]
+[ext_resource type="AudioStream" uid="uid://fn7ren3id4r7" path="res://resources/sounds/explosion.mp3" id="8_s1pdq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mysm2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_htdj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6leco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yhp50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xbbkg")
+}],
+"loop": true,
+"name": &"BOOM",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qlfnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r15pe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2xj0"]
+size = Vector2(47, 18)
+
+[sub_resource type="Animation" id="Animation_oxy4d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MinePressed:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MinePressed:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"BOOM"]
+}
+
+[sub_resource type="Animation" id="Animation_egvrm"]
+resource_name = "boom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MinePressed:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"BOOM"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MinePressed:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_118f2"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MinePressed:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_mysm2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MinePressed:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"default", &"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MinePressed:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_th2yq"]
+_data = {
+"RESET": SubResource("Animation_oxy4d"),
+"boom": SubResource("Animation_egvrm"),
+"new_animation": SubResource("Animation_118f2")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MinePressed" type="AnimatedSprite2D" parent="."]
+position = Vector2(23, 27)
+sprite_frames = SubResource("SpriteFrames_mysm2")
+animation = &"BOOM"
+frame = 1
+
+[node name="Mine" type="Area2D" parent="."]
+script = ExtResource("1_6wuin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mine"]
+position = Vector2(23.5, 9)
+shape = SubResource("RectangleShape2D_o2xj0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_th2yq")
+}
+
+[node name="Remove" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_s1pdq")
+volume_db = 5.0
+
+[connection signal="area_entered" from="Mine" to="Mine" method="_on_area_entered"]

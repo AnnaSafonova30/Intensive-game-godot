@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://hxpgarul75d"]
+
+[ext_resource type="Shader" path="res://scripts/smoke.gdshader" id="1_ddakl"]
+
+[sub_resource type="Gradient" id="Gradient_xq82a"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oqk11"]
+frequency = 0.0023
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p63hd"]
+width = 1152
+height = 648
+seamless = true
+seamless_blend_skirt = 0.647
+bump_strength = 53.5
+normalize = false
+color_ramp = SubResource("Gradient_xq82a")
+noise = SubResource("FastNoiseLite_oqk11")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_setlp"]
+shader = ExtResource("1_ddakl")
+shader_parameter/density = 0.4
+shader_parameter/speed = Vector2(-0.01, -0.01)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_p63hd")
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = 2
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 648)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
+material = SubResource("ShaderMaterial_setlp")
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true

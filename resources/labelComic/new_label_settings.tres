@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bxiiji8hinvsn"]
+
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="1_i2ecv"]
+
+[resource]
+font = ExtResource("1_i2ecv")
+font_size = 11
+outline_size = 1
+shadow_color = Color(1, 1, 1, 0)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://clxjuw1syl3eu"]
+
+[ext_resource type="Script" path="res://scripts/health.gd" id="1_dw10e"]
+
+[node name="heartsContainer" type="HBoxContainer"]
+layout_direction = 2
+offset_right = 89.0
+offset_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_dw10e")

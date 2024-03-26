@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5odq1n4vlgn2"]
+
+[ext_resource type="Texture2D" uid="uid://dbrqry6566q7" path="res://resources/decorations/jungle_level/firelight/1.png" id="1_57tph"]
+[ext_resource type="Texture2D" uid="uid://bhy5dc0a85lf5" path="res://resources/decorations/jungle_level/firelight/2.png" id="2_cijog"]
+[ext_resource type="Texture2D" uid="uid://b837ha87fepyk" path="res://resources/decorations/jungle_level/firelight/3.png" id="3_bwb5l"]
+[ext_resource type="Texture2D" uid="uid://ba1ox76vsmqcj" path="res://resources/decorations/jungle_level/firelight/lighter.png" id="4_qera4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_psr0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_57tph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cijog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bwb5l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(25, 25)
+scale = Vector2(2.5625, 2.5625)
+sprite_frames = SubResource("SpriteFrames_psr0y")
+autoplay = "default"
+frame_progress = 0.859803
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-0.780488, 10.5366)
+scale = Vector2(5.34959, 5.16722)
+texture = ExtResource("4_qera4")

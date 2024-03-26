@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4pcfttu2weuh"]
+
+[ext_resource type="Texture2D" uid="uid://blct6h5awyq1i" path="res://resources/mobile_buttons/up.png" id="1_38h8j"]
+[ext_resource type="Texture2D" uid="uid://caij0yycfc3kt" path="res://resources/mobile_buttons/up_pressed.png" id="2_nfcb4"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(96, 457)
+scale = Vector2(4.78947, 4.78947)
+texture_normal = ExtResource("1_38h8j")
+texture_pressed = ExtResource("2_nfcb4")
+action = "jump"

@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://lc7ucyr1dsos"]
+
+[ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="1_pexou"]
+[ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="2_3hhjr"]
+[ext_resource type="Texture2D" uid="uid://bkiwlfnpeggk4" path="res://resources/buttons/hovered.png" id="3_figtt"]
+[ext_resource type="Texture2D" uid="uid://de44wqbahpcjf" path="res://resources/buttons/pressed.png" id="4_60up1"]
+[ext_resource type="Script" path="res://scenes_for_scenes/Respawn.gd" id="5_s5dtr"]
+[ext_resource type="Script" path="res://scripts/Quit To Menu.gd" id="6_bu1wc"]
+[ext_resource type="Script" path="res://scripts/quit.gd" id="7_kytr0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kfjn"]
+texture = ExtResource("2_3hhjr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_meemk"]
+texture = ExtResource("3_figtt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dfhap"]
+texture = ExtResource("4_60up1")
+
+[node name="buttonsForDeadScreen" type="Control"]
+light_mask = 2
+visibility_layer = 2
+z_index = 500
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+self_modulate = Color(0.247059, 0.247059, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Respawn" type="Button" parent="MarginContainer/VBoxContainer"]
+light_mask = 2
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pexou")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_1kfjn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_meemk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dfhap")
+action_mode = 0
+text = "Respawn"
+script = ExtResource("5_s5dtr")
+
+[node name="Quit To Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+light_mask = 2
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pexou")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_1kfjn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_meemk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dfhap")
+action_mode = 0
+text = "Quit To Menu"
+script = ExtResource("6_bu1wc")
+
+[node name="Leave The Game" type="Button" parent="MarginContainer/VBoxContainer"]
+light_mask = 2
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pexou")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_1kfjn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_meemk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dfhap")
+action_mode = 0
+text = "Leave The Game"
+script = ExtResource("7_kytr0")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Respawn" to="MarginContainer/VBoxContainer/Respawn" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit To Menu" to="MarginContainer/VBoxContainer/Quit To Menu" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Leave The Game" to="MarginContainer/VBoxContainer/Leave The Game" method="_on_pressed"]

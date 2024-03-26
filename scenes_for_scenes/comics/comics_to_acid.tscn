@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://nsss5conkxkx"]
+
+[ext_resource type="Script" path="res://scripts/saveLevel/comics_to_acid.gd" id="1_hsrdn"]
+[ext_resource type="Texture2D" uid="uid://cyr4h7hqo6kj1" path="res://resources/backgrounds/empty.png" id="1_qsru2"]
+[ext_resource type="Texture2D" uid="uid://etgqjcyr17bm" path="res://resources/comics/2_5.png" id="2_5wcgf"]
+[ext_resource type="Texture2D" uid="uid://mfxnt7v27vfl" path="res://resources/comics/4_5.png" id="4_aos3v"]
+[ext_resource type="Texture2D" uid="uid://b37tn26kqjeka" path="res://resources/comics/5_5.png" id="4_oow1w"]
+[ext_resource type="Texture2D" uid="uid://dwb5aramli1na" path="res://resources/comics/1_5.png" id="5_cbsca"]
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="5_w4egf"]
+[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="6_cdedo"]
+[ext_resource type="Texture2D" uid="uid://bmlvc2t6tk8o3" path="res://resources/mobile_buttons/somewhere_need_this_button.png" id="7_ap4ow"]
+[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="8_3xpd4"]
+[ext_resource type="Script" path="res://scripts/move_from_comics_to_lvl.gd" id="9_o08rb"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="10_1er84"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uu5di"]
+font = ExtResource("5_w4egf")
+font_size = 40
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hsrdn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -86.0
+offset_top = -2.0
+offset_right = 1482.0
+offset_bottom = 792.0
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("1_qsru2")
+
+[node name="14" type="Sprite2D" parent="."]
+position = Vector2(704.199, 174)
+scale = Vector2(1.68375, 1.68375)
+texture = ExtResource("2_5wcgf")
+
+[node name="16" type="Sprite2D" parent="."]
+position = Vector2(316.199, 533)
+scale = Vector2(3.72398, 3.72398)
+texture = ExtResource("4_aos3v")
+
+[node name="17" type="Sprite2D" parent="."]
+position = Vector2(689, 533.801)
+scale = Vector2(3.74398, 3.74398)
+texture = ExtResource("4_oow1w")
+
+[node name="15" type="Sprite2D" parent="."]
+position = Vector2(303.199, 172)
+scale = Vector2(1.68375, 1.68375)
+texture = ExtResource("5_cbsca")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 2
+offset_left = 137.0
+offset_top = -1.0
+offset_right = 314.0
+offset_bottom = 141.0
+text = "Як дуже холодно тут."
+label_settings = SubResource("LabelSettings_uu5di")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="."]
+texture_filter = 2
+offset_left = 687.0
+offset_top = 3.0
+offset_right = 874.0
+offset_bottom = 145.0
+text = "Прощавай, Кріос!"
+label_settings = SubResource("LabelSettings_uu5di")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 2
+offset_left = 889.0
+offset_top = 187.0
+offset_right = 1194.0
+offset_bottom = 571.0
+text = "Після цього вони швидко вирушили до Аксису, щоб Плутон не встиг помітити зникнення зв'язку з Кріосом."
+label_settings = SubResource("LabelSettings_uu5di")
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1185.0
+offset_top = 627.0
+offset_right = 1204.0
+offset_bottom = 646.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("6_cdedo")
+texture_pressed = ExtResource("7_ap4ow")
+texture_hover = ExtResource("8_3xpd4")
+script = ExtResource("9_o08rb")
+levelTeleport = "third_lvl"
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 1.00012
+offset_top = 626.0
+offset_right = 20.0001
+offset_bottom = 645.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("6_cdedo")
+texture_pressed = ExtResource("7_ap4ow")
+texture_hover = ExtResource("8_3xpd4")
+flip_h = true
+script = ExtResource("10_1er84")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton2" to="TextureButton2" method="_on_pressed"]
